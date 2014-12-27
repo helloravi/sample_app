@@ -20,6 +20,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                           password:"sandeep", password_confirmation: "sandeep"}
     end
     assert_template 'users/show'
+    assert_select "div.alert", "You signed up for sample app"
+    assert_not flash.nil?
   end
 
 end
