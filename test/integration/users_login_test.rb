@@ -41,6 +41,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
     assert_not_nil cookies['remember_token']
+    # remember_token is virtual. defined using attr_accessor in user.rb. The next line is
+    # an exercise.
+    assert_equal assigns(:user).remember_token, cookies['remember_token']
   end
 
   test "login without remembering" do
