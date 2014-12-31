@@ -28,4 +28,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal @user.name, name
     assert_equal @user.email, email
   end
+
+  test "test login path after logging in " do
+    log_in_as(@user)
+    get login_path
+    assert_redirected_to user_path(@user)
+  end
 end
