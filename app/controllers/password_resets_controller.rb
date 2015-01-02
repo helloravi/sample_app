@@ -43,7 +43,7 @@ class PasswordResetsController < ApplicationController
 
     def both_passwords_blank?
       params[:user][:password].blank? &&
-      password[:user][:password_confirmation].blank?
+      params[:user][:password_confirmation].blank?
     end
 
     def check_expiration
